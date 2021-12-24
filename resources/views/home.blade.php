@@ -14,6 +14,16 @@
                         </div>
                     @endif
 
+                    @role ('admin')
+                    <p>This is visible to users with the admin role. Gets translated to 
+                        \Laratrust::hasRole(admin)</p>
+                    @endrole
+
+                    @role ('pengguna')
+                    <p>This is visible to users with the pengguna role. Gets translated to 
+                        \Laratrust::hasRole(pengguna)</p>
+                    @endrole
+
                     {{ __('You are logged in!') }}
                 </div>
             </div>
