@@ -20,7 +20,7 @@ Route::get('/', function () {
 // supaya tidak bisa register ataupun registernya hilang
 Auth::routes( 
     [
-        'register' => false
+        'register' => true
     ]
 );
 
@@ -48,13 +48,23 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     });
 // });
 
-// hanya contoh 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
-    Route::get('buku', function(){
-        return view ('buku.index');
-    })->middleware(['role:admin|pengguna']);
+// // hanya contoh 
+// Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+//     Route::get('buku', function(){
+//         return view ('buku.index');
+//     })->middleware(['role:admin|pengguna']);
 
-    Route::get('pengarang', function(){
-        return view ('pengarang.index');
+//     Route::get('pengarang', function(){
+//         return view ('pengarang.index');
+//     })->middleware(['role:admin']);
+// });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+    Route::get('merek', function(){
+        return view ('merek.index');
     })->middleware(['role:admin']);
+
+    Route::get('mobil', function(){
+        return view ('mobil.index');
+    })->middleware(['role:admin|pengguna']);
 });

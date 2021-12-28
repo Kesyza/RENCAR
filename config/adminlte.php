@@ -248,19 +248,67 @@ return [
         ],
         ['header' => 'Menu Utama'],
         [
-            'text' => 'Buku',
-            'url'  => 'admin/buku',
-            'icon' => 'fas fa-fw fa-book',
+            'text' => 'Dashboard',
+            'url'  => 'admin/dashboard',
+            'icon' => 'fas fa-fw fa-home',
         ],
         [
-            'text' => 'Pengarang',
-            'url'  => 'admin/pengarang',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'Manajemen Data',
+            'icon'    => 'fas fa-fw fa-book',
+            'submenu' => [
+                [
+                    'text' => 'Data Mobil',
+                    'url'  => 'admin/mobil',
+                    'icon' => 'fas fa-fw fa-car',
+                ],
+                [
+                    'text' => 'Data Merek',
+                    'url'  => 'admin/merek',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+                [
+                    'text' => 'Data Pelanggan',
+                    'url'  => 'admin/customer',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'Data Sopir',
+                    'url'  => 'admin/sopir',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'Data Testimoni',
+                    'url'  => 'admin/testimoni',
+                    'icon' => 'fas fa-fw fa-star',
+                ],
+            ],
         ],
         [
-            'text' => 'Menu Lain',
-            'url'  => 'admin/menu_lain',
-            'icon' => 'fas fa-fw fa-list',
+            'text'    => 'Transaksi',
+            'icon'    => 'fas fa-fw fa-wallet',
+            'submenu' => [
+                [
+                    'text' => 'Pengambilan Mobil',
+                    'url'  => '#',
+                    'icon' => 'fas fa-fw fa-share',
+                ],
+                [
+                    'text' => 'Pengembalian Mobil',
+                    'url'  => '#',
+                    'icon' => 'fas fa-fw fa-share',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Info Pembayaran',
+            'icon'    => 'fas fa-fw fa-newspaper',
+            'submenu' => [
+                [
+                    'text' => 'Laporan',
+                    'url'  => '#',
+                    'icon' => 'fas fa-fw fa-receipt',
+                ],
+            ],
         ],
     ],
 
