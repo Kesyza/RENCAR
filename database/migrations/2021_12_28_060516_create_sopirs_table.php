@@ -15,6 +15,8 @@ class CreateSopirsTable extends Migration
     {
         Schema::create('sopirs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_sopir');
+            $table->string('status_sopir');
             $table->timestamps();
         });
     }

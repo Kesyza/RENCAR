@@ -15,6 +15,21 @@ class CreateMobilsTable extends Migration
     {
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('merek_id')->unsigned();
+            $table->string('nama_mobil');
+            $table->string('nopol');
+            $table->integer('tahun');
+            $table->integer('seat');
+            $table->string('transmisi');
+            $table->string('bb');
+            $table->string('status_mobil');
+            $table->integer('tarif_mobil');
+            $table->integer('tarif_sopir');
+            $table->string('img');
+
+            $table->foreign('merek_id')->references('id')
+            ->on('mereks')->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
