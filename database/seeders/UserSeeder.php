@@ -28,12 +28,20 @@ class UserSeeder extends Seeder
 
         $user = new User();
         $user->name = 'Kesyza Andriana Hartuti';
+        $user->nomor_hp = '085647019939';
+        $user->jk = 'Perempuan';
+        $user->agama = 'Islam';
+        $user->alamat = 'Kp. Cilebak Ds. Rancamanyar RT. 02/02 (TB $ Saudara) Kecamatan Baleenadah Kabupaten Bandung Jawa Barat';
         $user->email = 'admin@gmail.com';
         $user->password = Hash::make('12345678');
         $user->save();
 
         $pengunjung = new User();
         $pengunjung->name = 'Pengunjung';
+        $pengunjung->nomor_hp = '085647019939';
+        $pengunjung->jk = 'Perempuan';
+        $pengunjung->agama = 'Islam';
+        $pengunjung->alamat = 'Ds. Lemahabang Cantilan RT. 02/05 (Masjid Al-Hikmah) Kecamatan Tanjung Kabupaten Brebes Jawa Tengah';
         $pengunjung->email = 'pengunjung@gmail.com';
         $pengunjung->password = Hash::make('12345678');
         $pengunjung->save();
