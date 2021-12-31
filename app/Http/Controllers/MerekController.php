@@ -14,7 +14,8 @@ class MerekController extends Controller
      */
     public function index()
     {
-        //
+        $merek = Merek::all();
+        return view('admin.merek.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class MerekController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.merek.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class MerekController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_merek' => 'required',
+            ]);
+
+        $merek = new Merek;
+        $merek->nama_merek = $request->nama_merek;
+        $merek->save();
+        return redirect()->route('merek.index');
     }
 
     /**
@@ -57,7 +65,8 @@ class MerekController extends Controller
      */
     public function edit(Merek $merek)
     {
-        //
+        $merek = Merek::findOrFail($id);
+        return view('admin.merek.edit', compact('merek'));
     }
 
     /**
@@ -69,7 +78,14 @@ class MerekController extends Controller
      */
     public function update(Request $request, Merek $merek)
     {
-        //
+        $validated = $request->validate([
+            'nama_merek' => 'required',
+            ]);
+
+        $merek = Merek::findOrFail($id);
+        $merek->nama_merek = $request->nama_merek;
+        $merek->save();
+        return redirect()->route('merek.index');
     }
 
     /**
@@ -80,6 +96,8 @@ class MerekController extends Controller
      */
     public function destroy(Merek $merek)
     {
-        //
+        $merek = Merek::findOrFail($id);
+        $merek->delete();
+        return redirect()->route('merek.index');
     }
 }

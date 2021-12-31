@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MerekController;
+use App\Http\Controllers\MobilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,11 +62,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
-    Route::get('merek', function(){
-        return view ('merek.index');
-    })->middleware(['role:admin']);
+    
+    Route::resource('merek', MerekController::class)->middleware(['role:admin']);
+    Route::resource('mobil', MobilController::class)->middleware(['role:admin']);
 
-    Route::get('mobil', function(){
-        return view ('mobil.index');
-    })->middleware(['role:admin|pengguna']);
 });
